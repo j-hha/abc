@@ -72,14 +72,15 @@ article {
     color: #FDFDFD;
     text-align: center;
 
-    .letter {
+    #letter {
       font-family: 'Playfair Display', serif;
       width: 50%;
       font-size: 10vmax;
       text-shadow: 2px 2px #191919;
+      text-transform: uppercase;
     }
 
-    .word {
+    .words {
       width: 50%;
       font-size: 2.5vmax;
     }

@@ -4,6 +4,7 @@ window.onload = function() {
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
   var eraser = document.getElementById('eraser');
+  var letter = document.getElementById('letter');
 
   var currentX;
   var currentY;
@@ -65,7 +66,7 @@ window.onload = function() {
   var randomLetter = function() {
     var randomNum = Math.round(Math.random() * 25);
     console.log(alphabet[randomNum]);
-    return alphabet[randomNum];
+    letter.innerHTML = alphabet[randomNum];
   };
 
   randomLetter();
