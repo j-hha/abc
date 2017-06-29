@@ -1,0 +1,118 @@
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://fonts.googleapis.com/css?family=Khula:300|Playfair+Display:700');
+
+* {
+  box-sizing: border-box;
+  // border: 1px dotted grey;
+  margin: 0;
+}
+
+body {
+  font-family: 'Khula', sans-serif;
+  color: #191919;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    color: deeppink;
+    text-shadow: 2px 2px #191919;
+    font-size: 45vw;
+  }
+}
+
+article {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: row wrap;
+
+  .prompt {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row wrap;
+    background-color: deeppink;
+    color: #FDFDFD;
+    text-align: center;
+
+    .letter {
+      font-family: 'Playfair Display', serif;
+      width: 50%;
+      font-size: 10vmax;
+      text-shadow: 2px 2px #191919;
+    }
+
+    .word {
+      width: 50%;
+      font-size: 2.5vmax;
+    }
+  }
+
+  #input-section {
+    background-color: #FDFDFD;
+
+    #input-menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      border-top: 1px solid lightgrey;
+      background-color: #fafafa;
+
+      i {
+        font-size: 5vh;
+        cursor: pointer;
+        padding: 0 5vh;
+      }
+
+      i:hover {
+        transform: scale(2);
+        transition-duration: .5s;
+      }
+
+      i:active {
+        transition-duration: .25s;
+        color: #191919;
+      }
+
+    }
+
+    #canvas {
+      // check copy right for altering!!
+      cursor: url('../img/pencil_smashicon.png'), default;
+      display: block;
+    }
+  }
+}
+
+@media (orientation: landscape) {
+  .prompt {
+    height: 100%;
+    width: 50%;
+  }
+
+  #input-section {
+    height: 100%;
+    width: 50%;
+  }
+}
+
+@media (orientation: portrait) {
+  .prompt {
+    height: 50%;
+    width: 100%;
+  }
+
+  #input-section {
+    height: 50%;
+    width: 100%;
+  }
+}
