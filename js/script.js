@@ -10,6 +10,9 @@ window.onload = function() {
   var prevX;
   var prevY;
 
+  var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s'
+  ,'t','u','v','w','y','x','z'];
+
 
   var setCanvasDimensions = function() {
     var fivePercent = (document.querySelector('body').offsetHeight/100) * 5;
@@ -58,6 +61,16 @@ window.onload = function() {
   var clearCanvas = function() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
+
+  var randomLetter = function() {
+    var randomNum = Math.round(Math.random() * 25);
+    console.log(alphabet[randomNum]);
+    return alphabet[randomNum];
+  };
+
+  randomLetter();
+
+
 
   canvas.addEventListener('mousedown', start);
   canvas.addEventListener('mouseup', end);
