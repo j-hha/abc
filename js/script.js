@@ -5,6 +5,7 @@ window.onload = function() {
   var ctx = canvas.getContext('2d');
   var eraser = document.getElementById('eraser');
   var letter = document.getElementById('letter');
+  var newLetter = document.getElementById('new-letter');
 
   var currentX;
   var currentY;
@@ -67,12 +68,12 @@ window.onload = function() {
     var randomNum = Math.round(Math.random() * 25);
     console.log(alphabet[randomNum]);
     letter.innerHTML = alphabet[randomNum];
+    clearCanvas();
   };
 
   randomLetter();
 
-
-
+  newLetter.addEventListener('click', randomLetter);
   canvas.addEventListener('mousedown', start);
   canvas.addEventListener('mouseup', end);
   window.addEventListener('resize', setCanvasDimensions);

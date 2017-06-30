@@ -54,16 +54,26 @@
             <h3>is for</h3>
           </div>
           <div class="words">
-            <img src="" alt="">
+            <!-- <img src="" alt=""> -->
+            <i class="fa fa-heart" aria-hidden="true"></i>
             <h3 id="word"></h3>
           </div>
         </section>
         <section id="input-section">
           <canvas id="canvas"></canvas>
-          <div id="input-menu">
-            <span>practice writing here ^</span>
-            <i id="eraser" class="fa fa-eraser" aria-hidden="true">e</i>
-          </div>
+          <nav id="input-menu">
+            <ul class="fa-ul">
+              <li class="input-menu-description">practice writing here
+                <i class="fa-li fa fa-caret-up" aria-hidden="true"></i>
+              </li>
+              <li class="input-menu-element" id="new-letter">
+                <i class="fa-li fa fa-refresh"></i> new letter
+              </li>
+              <li class="input-menu-element" id="eraser">
+                <i class="fa-li fa fa-eraser" aria-hidden="true"></i> erase
+              </li>
+            </ul>
+          </nav>
         </section>
       </article>
     </main>
