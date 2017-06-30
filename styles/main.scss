@@ -25,8 +25,30 @@ header {
     background: linear-gradient(180deg, yellow, orange, deeppink, deeppink);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    // text-shadow: 2px 2px #191919;
-    font-size: 40vw;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+
+    span {
+      display: block;
+      width: 15vw;
+      font-size: 6.5vw;
+    }
+
+    .non-abc-span {
+      font-size: 2.6vw;
+      color: #191919;
+      -webkit-text-fill-color: #535353;
+      text-decoration: overline;
+
+      i {
+        text-decoration: none;
+        font-size: 6.5vw;
+        align-self: flex-end;
+      }
+    }
   }
 }
 

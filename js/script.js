@@ -6,6 +6,7 @@ window.onload = function() {
   var eraser = document.getElementById('eraser');
   var letter = document.getElementById('letter');
   var newLetter = document.getElementById('new-letter');
+  var h1 = document.querySelector('h1');
 
   var currentX;
   var currentY;
@@ -14,6 +15,13 @@ window.onload = function() {
 
   var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s'
   ,'t','u','v','w','y','x','z'];
+
+  for (var i = 0; i < alphabet.length; i++) {
+    h1.innerHTML += '<span>' + alphabet[i] + '</span>';
+  }
+
+  h1.innerHTML += '<span class="non-abc-span"><i class="fa fa-angle-down" aria-hidden="true"></i></span>';
+
 
 
   var setCanvasDimensions = function() {
