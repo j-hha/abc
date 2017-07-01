@@ -7,6 +7,16 @@
   margin: 0;
 }
 
+a {
+  color: #535353;
+  &:hover {
+    color: #4A0069;
+  }
+  &:active {
+    color: darkgrey;
+  }
+}
+
 body {
   font-family: 'Khula', sans-serif;
   color: #191919;
@@ -51,34 +61,6 @@ header {
     }
   }
 }
-
-// #alphabet {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-around;
-//   background-color: #efefef;
-//   color: white;
-//   height: 10vh;
-//   text-transform: uppercase;
-//
-//   ul {
-//     list-style: none;
-//     padding: 0;
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-around;
-//     flex-flow: row wrap;
-//   }
-//
-//   li {
-//     padding: .5vh 0;
-//     background-color: #808080;
-//     border: 2px solid #efefef;
-//     width: 7.5vw;
-//     text-align: center;
-//     font-size: 2.5vh;
-//   }
-// }
 
 article {
   height: 100vh;

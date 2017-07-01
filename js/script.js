@@ -7,6 +7,7 @@ window.onload = function() {
   var letter = document.getElementById('letter');
   var newLetter = document.getElementById('new-letter');
   var h1 = document.querySelector('h1');
+  var abcSpan = document.getElementsByClassName('abc-span');
 
   var currentX;
   var currentY;
@@ -17,10 +18,10 @@ window.onload = function() {
   ,'t','u','v','w','y','x','z'];
 
   for (var i = 0; i < alphabet.length; i++) {
-    h1.innerHTML += '<span>' + alphabet[i] + '</span>';
+    h1.innerHTML += '<span class="abc-span">' + alphabet[i] + '</span>';
   }
 
-  h1.innerHTML += '<span class="non-abc-span"><i class="fa fa-angle-down" aria-hidden="true"></i></span>';
+  h1.innerHTML += '<span class="non-abc-span"><a href="#main"><i class="fa fa-angle-down" aria-hidden="true"></i></a></span>';
 
 
 
@@ -80,6 +81,15 @@ window.onload = function() {
   };
 
   randomLetter();
+
+  var selectLetter = function() {
+    console.log(this.innerHTML);
+    letter.innerHTML = this.innerHTML;
+  }
+
+  for (var i = 0; i < abcSpan.length; i++) {
+    abcSpan[i].addEventListener('click', selectLetter);
+  }
 
   newLetter.addEventListener('click', randomLetter);
   canvas.addEventListener('mousedown', start);
