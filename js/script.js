@@ -1,4 +1,7 @@
 window.onload = function() {
+
+  // *************** DOM ELEMENTS ***************
+
   var inputBox = document.getElementById('input-section');
   var inputMenu = document.getElementById('input-menu');
   var canvas = document.getElementById('canvas');
@@ -8,11 +11,22 @@ window.onload = function() {
   var newLetter = document.getElementById('new-letter');
   var h1 = document.querySelector('h1');
   var abcSpan = document.getElementsByClassName('abc-span');
+  var options = document.getElementById('options');
+  var newLetterTxt = document.getElementById('new-letter-text');
+  var newLetterIcon = document.getElementById('new-letter-icon');
+  var randomLi = document.getElementById('random');
+  var selectLi = document.getElementById('select');
+  var header = document.querySelector('header');
+
+
+  // *************** VARIABLES TO BE USED LATER ***************
+
 
   var currentX;
   var currentY;
   var prevX;
   var prevY;
+  var clicked = false;
 
   var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s'
   ,'t','u','v','w','y','x','z'];
@@ -23,7 +37,7 @@ window.onload = function() {
 
   h1.innerHTML += '<span class="non-abc-span"><a href="#main"><i class="fa fa-angle-down" aria-hidden="true"></i></a></span>';
 
-
+  // *************** FUNCTIONS ***************
 
   var setCanvasDimensions = function() {
     var fivePercent = (document.querySelector('body').offsetHeight/100) * 5;
@@ -82,16 +96,38 @@ window.onload = function() {
 
   randomLetter();
 
+  var showOptions = function() {
+    if(!clicked) {
+      options.style.display = 'block';
+      clicked = true;
+    } else {
+      options.style.display = 'none';
+      clicked = false;
+    }
+
+  };
+
   var selectLetter = function() {
+    canvas.scrollIntoView()
     console.log(this.innerHTML);
     letter.innerHTML = this.innerHTML;
+    clearCanvas();
+  };
+
+  var showLetterOptions = function() {
+    header.scrollIntoView();
   }
+
+
+  // *************** EVENT LISTENERS ***************
 
   for (var i = 0; i < abcSpan.length; i++) {
     abcSpan[i].addEventListener('click', selectLetter);
   }
 
-  newLetter.addEventListener('click', randomLetter);
+  selectLi.addEventListener('click', showLetterOptions);
+  randomLi.addEventListener('click', randomLetter);
+  newLetter.addEventListener('click', showOptions);
   canvas.addEventListener('mousedown', start);
   canvas.addEventListener('mouseup', end);
   window.addEventListener('resize', setCanvasDimensions);

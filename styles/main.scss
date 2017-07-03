@@ -31,20 +31,35 @@ header {
   h1 {
     font-family: 'Playfair Display', serif;
     text-align: center;
-    color: deeppink;
-    background: linear-gradient(180deg, yellow, orange, deeppink, deeppink);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     text-transform: uppercase;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: row wrap;
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(yellow, orange, deeppink, deeppink); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(yellow, orange, deeppink, deeppink); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(yellow, orange, deeppink, deeppink); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(180deg, yellow, orange, deeppink, deeppink);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: deeppink;
 
     span {
       display: block;
       width: 15vw;
       font-size: 6.5vw;
+    }
+
+    .abc-span {
+      color: deeppink;
+      cursor: pointer;
+      &:hover {
+        -webkit-text-fill-color: #4A0069;
+      }
+      &:active {
+        -webkit-text-fill-color: darkgrey;
+      }
     }
 
     .non-abc-span {
@@ -104,10 +119,36 @@ article {
     #input-menu {
       border-top: 1px solid lightgrey;
       background-color: #fafafa;
-      font-size: 3vmin;
+      font-size: 3.5vmin;
       display: flex;
       align-items: center;
       justify-content: space-around;
+
+      #options {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        list-style: none;
+        display: none;
+        position: absolute;
+        top: -13vmin;
+        padding: 1vh .5vw;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        background-color: #FDFDFD;
+        border: 1px solid lightgrey;
+
+        li:hover {
+          color: deeppink;
+          transition-duration: .5s;
+        }
+
+        li:active {
+          transition-duration: .25s;
+          color: #4A0069;
+        }
+      }
 
       ul {
         display: flex;
@@ -115,6 +156,10 @@ article {
         justify-content: space-around;
         width: 100%;
         padding-left: 0;
+
+        li {
+          position: relative;
+        }
 
         .input-menu-description {
           color: grey;
@@ -124,14 +169,14 @@ article {
         .input-menu-element {
           cursor: pointer;
 
-          &:hover {
-            transform: scale(1.6);
+          span:hover {
+            color: deeppink;
             transition-duration: .5s;
           }
 
-          &:active {
+          span:active {
             transition-duration: .25s;
-            color: deeppink;
+            color: #4A0069;
           }
         }
 
