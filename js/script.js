@@ -21,15 +21,15 @@ window.onload = function() {
 
   // *************** VARIABLES TO BE USED LATER ***************
 
-
   var currentX;
   var currentY;
   var prevX;
   var prevY;
   var clicked = false;
-
   var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s'
   ,'t','u','v','w','y','x','z'];
+  var currentLetter = alphabet[0];
+
 
   for (var i = 0; i < alphabet.length; i++) {
     h1.innerHTML += '<span class="abc-span">' + alphabet[i] + '</span>';
@@ -38,20 +38,6 @@ window.onload = function() {
   h1.innerHTML += '<span class="non-abc-span"><a href="#main"><i class="fa fa-angle-down" aria-hidden="true"></i></a></span>';
 
   // *************** FUNCTIONS ***************
-
-  var setCanvasDimensions = function() {
-    var fivePercent = (document.querySelector('body').offsetHeight/100) * 5;
-    canvas.height = inputBox.offsetHeight - fivePercent;
-    canvas.width = inputBox.offsetWidth;
-    console.log(inputBox.offsetHeight - canvas.offsetHeight);
-    inputMenu.style.height = (inputBox.offsetHeight - canvas.offsetHeight) + 'px';
-    console.log(inputMenu.offsetHeight);
-
-    console.log('input box :' + inputBox.offsetHeight, inputBox.offsetWidth);
-    console.log('canvas :' + canvas.offsetHeight, canvas.offsetWidth);
-  }
-
-  setCanvasDimensions();
 
   var draw = function() {
     ctx.strokeStyle = 'deeppink';
@@ -83,18 +69,27 @@ window.onload = function() {
     canvas.removeEventListener('mousemove', getCoordinates);
   };
 
+  var writeLetter = function() {
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "center";
+    ctx.font="25vmax 'Arial'";
+    ctx.strokeStyle = "#191919";
+    ctx.lineWidth = 3;
+    ctx.strokeText(currentLetter, (canvas.offsetWidth / 2), (canvas.offsetHeight / 2));
+  };
+
   var clearCanvas = function() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    writeLetter();
   };
 
   var randomLetter = function() {
     var randomNum = Math.round(Math.random() * 25);
     console.log(alphabet[randomNum]);
-    letter.innerHTML = alphabet[randomNum];
+    currentLetter = alphabet[randomNum].toUpperCase();
     clearCanvas();
+    writeLetter();
   };
-
-  randomLetter();
 
   var showOptions = function() {
     if(!clicked) {
@@ -104,19 +99,30 @@ window.onload = function() {
       options.style.display = 'none';
       clicked = false;
     }
-
   };
 
   var selectLetter = function() {
     canvas.scrollIntoView()
-    console.log(this.innerHTML);
-    letter.innerHTML = this.innerHTML;
+    currentLetter = this.innerHTML.toUpperCase();
     clearCanvas();
+    writeLetter();
   };
 
   var showLetterOptions = function() {
     header.scrollIntoView();
+  };
+
+  var setCanvasDimensions = function() {
+    var fivePercent = (document.querySelector('body').offsetHeight/100) * 5;
+    canvas.height = inputBox.offsetHeight - fivePercent;
+    canvas.width = inputBox.offsetWidth;
+    inputMenu.style.height = (inputBox.offsetHeight - canvas.offsetHeight) + 'px';
+    clearCanvas();
+    writeLetter();
   }
+
+  setCanvasDimensions();
+  randomLetter();
 
 
   // *************** EVENT LISTENERS ***************
