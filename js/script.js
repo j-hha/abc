@@ -35,8 +35,8 @@ window.onload = function() {
 
   var abcWords = {
     'a': ['...'],
-    'b': ['bridge', 'Brooklyn'],
-    'c': ['cab', 'coffee', 'Coney Island'],
+    'b': ['bridge', 'Brooklyn', 'Bronx'],
+    'c': ['cab', 'coffee', 'Coney Island', 'Central Park'],
     'd': ['dog'],
     'e': ['Empire State Building'],
     'f': ['ferry'],
@@ -49,7 +49,7 @@ window.onload = function() {
     'm': ['museum', 'Manhattan'],
     'n': ['...'],
     'o': ['One World Trade Center'],
-    'p': ['park'],
+    'p': ['park', 'playground'],
     'q': ['Queens'],
     'r': ['...'],
     's': ['subway', 'Staten Island'],
