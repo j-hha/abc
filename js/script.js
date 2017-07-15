@@ -34,8 +34,8 @@ window.onload = function() {
   var currentLetter = alphabet[0];
 
   var abcWords = {
-    'a': ['...'],
-    'b': ['bridge', 'Brooklyn', 'Bronx'],
+    'a': ['airplane', 'Big Apple'],
+    'b': ['bridge', 'Brooklyn', 'Bronx', 'bus'],
     'c': ['cab', 'coffee', 'Coney Island', 'Central Park'],
     'd': ['dog'],
     'e': ['Empire State Building'],
@@ -43,11 +43,11 @@ window.onload = function() {
     'g': ['Greenpoint'],
     'h': ['High Line'],
     'i': ['ice cream', 'I love NY'],
-    'j': ['Jane\'s Carousel'],
+    'j': ['Jane\'s Carousel', 'John F. Kennedy International Airport'],
     'k': ['Knicks'],
     'l': ['Lincoln Center', 'Long Island City'],
-    'm': ['museum', 'Manhattan'],
-    'n': ['...'],
+    'm': ['museum', 'Manhattan', 'MTA', 'Mets'],
+    'n': ['Nathan\'s Famous'],
     'o': ['One World Trade Center'],
     'p': ['park', 'playground'],
     'q': ['Queens'],
@@ -58,7 +58,7 @@ window.onload = function() {
     'v': ['...'],
     'w': ['...'],
     'x': ['...'],
-    'y': ['YMCA'],
+    'y': ['YMCA', 'Yankees'],
     'z': ['zoo'],
   };
 
