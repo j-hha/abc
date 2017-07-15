@@ -17,6 +17,7 @@ window.onload = function() {
   var randomLi = document.getElementById('random');
   var selectLi = document.getElementById('select');
   var header = document.querySelector('header');
+  var wordForLetter = document.getElementById('word');
 
 
   // *************** VARIABLES TO BE USED LATER ***************
@@ -26,9 +27,40 @@ window.onload = function() {
   var prevX;
   var prevY;
   var clicked = false;
+
+  // ****** alphabeth letters and words ******
   var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s'
   ,'t','u','v','w','y','x','z'];
   var currentLetter = alphabet[0];
+
+  var abcWords = {
+    'a': ['...'],
+    'b': ['bridge'],
+    'c': ['cab'],
+    'd': ['dog'],
+    'e': ['Empire State Building'],
+    'f': ['ferry'],
+    'g': ['Greenpoint'],
+    'h': ['High Line'],
+    'i': ['ice cream'],
+    'j': ['Jane\'s Carousel'],
+    'k': ['Knicks'],
+    'l': ['Lincoln Center'],
+    'm': ['museum'],
+    'n': ['...'],
+    'o': ['One World Trade Center'],
+    'p': ['park'],
+    'q': ['Queens'],
+    'r': ['...'],
+    's': ['subway'],
+    't': ['train'],
+    'u': ['United Nations'],
+    'v': ['...'],
+    'w': ['...'],
+    'x': ['...'],
+    'y': ['YMCA'],
+    'z': ['zoo'],
+  };
 
 
   for (var i = 0; i < alphabet.length; i++) {
@@ -73,7 +105,7 @@ window.onload = function() {
     ctx.textBaseline = "middle";
     ctx.textAlign = "center";
     ctx.font="25vmax 'Arial'";
-    ctx.strokeStyle = "#191919";
+    ctx.strokeStyle = "#808080";
     ctx.lineWidth = 3;
     ctx.strokeText(currentLetter, (canvas.offsetWidth / 2), (canvas.offsetHeight / 2));
   };
@@ -83,12 +115,21 @@ window.onload = function() {
     writeLetter();
   };
 
+  var getWord = function() {
+    for (var letter in abcWords) {
+      if (currentLetter === letter.toUpperCase()) {
+        wordForLetter.innerHTML = abcWords[letter][0];
+      }
+    }
+  };
+
   var randomLetter = function() {
     var randomNum = Math.round(Math.random() * 25);
     console.log(alphabet[randomNum]);
     currentLetter = alphabet[randomNum].toUpperCase();
     clearCanvas();
     writeLetter();
+    getWord();
   };
 
   var showOptions = function() {
@@ -106,6 +147,7 @@ window.onload = function() {
     currentLetter = this.innerHTML.toUpperCase();
     clearCanvas();
     writeLetter();
+    getWord();
   };
 
   var showLetterOptions = function() {
