@@ -35,24 +35,24 @@ window.onload = function() {
 
   var abcWords = {
     'a': ['...'],
-    'b': ['bridge'],
-    'c': ['cab'],
+    'b': ['bridge', 'Brooklyn'],
+    'c': ['cab', 'coffee', 'Coney Island'],
     'd': ['dog'],
     'e': ['Empire State Building'],
     'f': ['ferry'],
     'g': ['Greenpoint'],
     'h': ['High Line'],
-    'i': ['ice cream'],
+    'i': ['ice cream', 'I love NY'],
     'j': ['Jane\'s Carousel'],
     'k': ['Knicks'],
-    'l': ['Lincoln Center'],
-    'm': ['museum'],
+    'l': ['Lincoln Center', 'Long Island City'],
+    'm': ['museum', 'Manhattan'],
     'n': ['...'],
     'o': ['One World Trade Center'],
     'p': ['park'],
     'q': ['Queens'],
     'r': ['...'],
-    's': ['subway'],
+    's': ['subway', 'Staten Island'],
     't': ['train'],
     'u': ['United Nations'],
     'v': ['...'],
@@ -118,7 +118,8 @@ window.onload = function() {
   var getWord = function() {
     for (var letter in abcWords) {
       if (currentLetter === letter.toUpperCase()) {
-        wordForLetter.innerHTML = abcWords[letter][0];
+        var randomNum = Math.round(Math.random() * (abcWords[letter].length-1));
+        wordForLetter.innerHTML = abcWords[letter][randomNum];
       }
     }
   };
